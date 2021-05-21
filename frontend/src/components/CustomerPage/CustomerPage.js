@@ -1,9 +1,7 @@
-import {useContext , useState ,useEffect} from 'react';
-import User from "../../images/user.png"
+import { useState ,useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Card, Container,ListGroup,ListGroupItem} from 'react-bootstrap'
 import axios from 'axios'
-import './CustomerPage.css'
 const CustomerPage = () => {
   const[profile,setProfile]= useState(
     {
@@ -17,9 +15,9 @@ const CustomerPage = () => {
   });
   const profileData = async () => {
   try {
+      /* http://localhost:9000/api/customer :- to run local host*/
   const res = await axios.get("https://ordercustomeruser.herokuapp.com/api/customer");
-  console.log( res.data);
-  console.log(res.data.data.name)
+
   setProfile({
   profileName: res.data.data.name,
   profileAddress: res.data.data.address,
@@ -36,9 +34,9 @@ const CustomerPage = () => {
    },[]);
     return (
       <div className="App">
-<Container>
+<Container style={{alignItems:'center'}}>
 <Card style={{ marginTop:'10px',marginLeft:'15rem',width: '40rem' }}>
-  <Card.Img variant="top"style={{width:"50%",marginLeft:'10rem'}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQsWGsiGUXzgug60XJ2YDaTGPSK5bIuPzz3BfJdKmtlnbYvtMDUEndyCQmAWcnbsVLNwU&usqp=CAU" />
+  <Card.Img variant="top"style={{width:"50%",marginLeft:'10rem'}} src="/images/user.png" />
   <Card.Body>
     <Card.Title>{profile.profileName}</Card.Title>
     <Card.Text>
@@ -50,9 +48,6 @@ const CustomerPage = () => {
     <ListGroupItem>Address: {profile.profileAddress}</ListGroupItem>
     <ListGroupItem>Phone Number: {profile.profilePhone}</ListGroupItem>
     <ListGroupItem>About: {profile.profileAbout}</ListGroupItem>
-
-
-
   </ListGroup>
   <ListGroup horizontal>
   <ListGroupItem style={{display:'flex' ,justifyContent:'center',width:'350px'}}>Likes:   <ul>{profile.profileLike}</ul></ListGroupItem>
@@ -60,6 +55,7 @@ const CustomerPage = () => {
 </ListGroup>
 
 </Card>
+
 </Container>
 </div>
     )

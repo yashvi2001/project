@@ -1,4 +1,3 @@
-import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -16,7 +15,7 @@ const NavBar = () => {
           <Nav className="mr-auto"></Nav>
           <Nav>
             <Link to="/CustomerPage">
-              <Nav.Link href="#CustomerPage">CustomerPage</Nav.Link>
+              <Nav.Link style={{cursor: 'pointer'}}href="#CustomerPage">CustomerPage</Nav.Link>
             </Link>
 
 
