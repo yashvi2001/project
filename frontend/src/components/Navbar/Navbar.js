@@ -7,8 +7,8 @@ const NavBar = () => {
   return (
     <div className="App">
   <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand as={Link} to="/">
-        Food Delivary App
+        <Navbar.Brand style={{marginLeft:'10px'}}as={Link} to="/">
+        Kumba
 
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
